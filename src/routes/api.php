@@ -5,7 +5,9 @@ use Illuminate\Support\Facades\Route;
 
 // Agregar el controlador EventoController
 use App\Http\Controllers\EventoController;
-use App\Http\Controllers\PonenteController; 
+// Agregar el controlador PonenteController
+use App\Http\Controllers\PonenteController;
+// Agregar el controlador AsistenteController
 use App\Http\Controllers\AsistenteController;
 
 /**
@@ -30,12 +32,14 @@ Route::middleware('auth:api')->group(function () {
     Route::put('/eventos/{evento}', [EventoController::class, 'update']);
     // Eliminar un evento específico
     Route::delete('/eventos/{id}', [EventoController::class, 'destroy']);
+    
     // Almacenar un ponente nuevo
     Route::post('/ponentes', [PonenteController::class, 'store']);
     // Actualizar un ponente específico
-    Route::put('/ponentes/{evento}', [PonenteController::class, 'update']);
+    Route::put('/ponentes/{ponente}', [PonenteController::class, 'update']);
     // Eliminar un evento específico
     Route::delete('/ponentes/{id}', [PonenteController::class, 'destroy']);
+    
     // Recuperar todos los asistentes 
     Route::get('/asistentes', [AsistenteController::class, 'index']); 
     // Almacenar un asistente nuevo 
